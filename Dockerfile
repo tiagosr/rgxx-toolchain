@@ -58,6 +58,7 @@ RUN apt-get -y update && apt-get -y install \
 	libncurses5-dev \
 	locales \
 	make \
+	nano \
 	p7zip-full \
 	rsync \
 	sharutils \
@@ -71,7 +72,7 @@ RUN apt-get -y update && apt-get -y install \
 
 COPY --from=build /opt /opt
 COPY support .
-RUN cat ./setup-env.sh >> .bashrc
+RUN cat ./setup-env.sh >> /root/.bashrc
 
 VOLUME /root/workspace
 WORKDIR /root/workspace
